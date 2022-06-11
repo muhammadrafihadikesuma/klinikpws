@@ -1,13 +1,19 @@
+<?php
+session_start();
+require '../api/koneksi.php';
+// require 'api_checksessions.php';
+?>
+
 <!-- ======= Header ======= -->
-<?php include 'widgets_header.php'; ?>
+<?php require '../widgets/header.php'; ?>
 <!-- End Header -->
 
 <!-- ======= Sidebar ======= -->
-<?php include 'widgets_sidebar.php'; ?>
+<?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
 
 <?php
-include 'api_koneksi.php';
+require '../api/koneksi.php';
 $query = mysqli_query($koneksi, "SELECT max(id_pendaftaran) as kodeTerbesar FROM tbl_pendaftaran");
 $data = mysqli_fetch_array($query);
 $idPendaftaran = $data['kodeTerbesar'];
@@ -144,4 +150,4 @@ $idPendaftaran = $huruf . sprintf("%04s", $urutan);
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<?php include 'widgets_footer.php'; ?>
+	<?php require '../widgets/footer.php'; ?>

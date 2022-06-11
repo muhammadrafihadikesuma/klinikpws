@@ -106,7 +106,7 @@
 
      <!-- User -->
      <li class="nav-item">
-        <a class="nav-link collapsed" href="user.php">
+        <a class="nav-link collapsed" href="../forms/add_user.php">
           <i class="bi bi-card-list"></i>
           <span>USER</span>
         </a>

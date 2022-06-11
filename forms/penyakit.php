@@ -1,11 +1,16 @@
+<?php
+session_start();
+require '../api/koneksi.php';
+// require 'api_checksessions.php';
+?>
+
 <!-- ======= Header ======= -->
-<?php include 'widgets_header.php'; ?>
+<?php require '../widgets/header.php'; ?>
 <!-- End Header -->
 
 <!-- ======= Sidebar ======= -->
-<?php include 'widgets_sidebar.php'; ?>
+<?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
-
 <body>
 
     <main id="main" class="main">
@@ -64,4 +69,4 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <?php include 'widgets_footer.php'; ?>
+    <?php require '../widgets/footer.php'; ?>

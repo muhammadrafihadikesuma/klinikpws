@@ -21,7 +21,7 @@ require '../api/koneksi.php';
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="input_pasien.php">Input Pasien</a></li>
+                    <li class="breadcrumb-item"><a href="../forms/add_pasien.php">Input Pasien</a></li>
                     <li class="breadcrumb-item active">Data Pasien</li>
                 </ol>
             </nav>
@@ -59,102 +59,43 @@ require '../api/koneksi.php';
                                         require "../api/koneksi.php";
                                         $sql = mysqli_query($koneksi, "SELECT * from tbl_pasien order by id_pasien Desc LIMIT 3000") or die("error karena" . mysqli_error($connection));
                                         $no = 1;
-                                        while ($a = mysqli_fetch_array($sql)) {
-                                            $id = $a['id_pasien'];
-                                            $d1 = $a['nama_pasien'];
-                                            $d2 = $a['jk'];
-                                            $d3 = $a['no_bpjs'];
-                                            $d4 = $a['tgl_lahir'];
-                                            $d5 = $a['status_pasien'];
-                                            $d6 = $a['nama_pekerja'];
-                                            $d7 = $a['jabatan_pekerja'];
-                                            $d8 = $a['status_pekerja'];
-                                            $d9 = $a['nohp_pekerja'];
-                                            $d10 = $a['estate'];
-                                            $d11 = $a['op'];
-
+                                        while ($read = mysqli_fetch_array($sql)) {
+                                            $id_pasien = $read['id_pasien'];
+                                            $nama_pasien = $read['nama_pasien'];
+                                            $jk = $read['jk'];
+                                            $no_bpjs = $read['no_bpjs'];
+                                            $tgl_lahir = $read['tgl_lahir'];
+                                            $status_pasien = $read['status_pasien'];
+                                            $nama_pekerja = $read['nama_pekerja'];
+                                            $jabatan_pekerja = $read['jabatan_pekerja'];
+                                            $status_pekerja = $read['status_pekerja'];
+                                            $nohp_pekerja = $read['nohp_pekerja'];
+                                            $estate = $read['estate'];
+                                            $op = $read['op'];
                                         ?>
+
                                             <td><?php echo $no++;  ?></td>
-
-                                            <td><?php echo  $id;  ?></td>
-
-                                            <td><?php echo  $d1;  ?></td>
-
-                                            <td>
-                                                <?php
-                                                if ($d2 == "1") {
+                                            <td><?php echo  $id_pasien;  ?></td>
+                                            <td><?php echo  $nama_pasien;  ?></td>
+                                            <td><?php
+                                                if ($jk == "1") {
                                                     echo "Laki-laki";
                                                 } else {
                                                     echo "Perempuan";
                                                 }
                                                 ?>
                                             </td>
-
-                                            <td><?php echo $d3;  ?></td>
-
-                                            <td><?php echo $d4;  ?></td>
-
-                                            <td>
-                                                <?php
-                                                if ($d5 == "ES1") {
-                                                    echo "Pekerja";
-                                                } elseif ($d5 == "ES2") {
-                                                    echo "Istri/Suami Pekerja";
-                                                } elseif ($d5 == "ES3") {
-                                                    echo "Anak Pekerja";
-                                                } else {
-                                                    echo "Umum";
-                                                }
-                                                ?>
-                                            </td>
-
-                                            <td><?php echo $d6;  ?></td>
-
-                                            <td><?php echo $d7;  ?></td>
-
-                                            <td>
-                                                <?php
-                                                if ($d8 == "1") {
-                                                    echo "Executive";
-                                                } elseif ($d8 == "2") {
-                                                    echo "PB";
-                                                } elseif ($d8 == "3") {
-                                                    echo "PGHT";
-                                                } elseif ($d8 == "4") {
-                                                    echo "BHL";
-                                                } elseif ($d8 == "5") {
-                                                    echo "BRG";
-                                                } else {
-                                                    echo "UMUM";
-                                                }
-                                                ?>
-                                            </td>
-
-                                            <td><?php echo $d9;  ?></td>
-
-                                            <td>
-                                                <?php
-                                                if ($d10 == "1") {
-                                                    echo "RO";
-                                                } elseif ($d10 == "2") {
-                                                    echo "P.Salak";
-                                                } elseif ($d10 == "3") {
-                                                    echo "Pangkor";
-                                                } elseif ($d10 == "4") {
-                                                    echo "Grik";
-                                                } elseif ($d10 == "5") {
-                                                    echo "PKS";
-                                                } else {
-                                                    echo "Umum";
-                                                }
-                                                ?>
-                                            </td>
-
-                                            <td> <?php echo $d11; ?></td>
-
-                                            <td>
+                                            <td><?php echo $no_bpjs; ?></td>
+                                            <td><?php echo $tgl_lahir;  ?></td>
+                                            <td><?php echo $status_pasien;  ?></td>
+                                            <td><?php echo $nama_pekerja; ?></td>
+                                            <td><?php echo $jabatan_pekerja;  ?></td>
+                                            <td><?php echo $status_pekerja;  ?></td>
+                                            <td><?php echo $nohp_pekerja; ?></td>
+                                            <td><?php echo $estate;  ?></td>
+                                            <td> <?php echo $op; ?></td>
+                                            <td style="align-content: center;">
                                                 <a href="api_editpasiens.php?id=<?= $a['id_pasien'] ?>" class="label label-sm label-info"> <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
-
                                                 <a href="api_deletepasiens.php?id=<?= $a['id_pasien'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="bi bi-trash btn btn-danger btn-sm"></i></a>
                                             </td>
 

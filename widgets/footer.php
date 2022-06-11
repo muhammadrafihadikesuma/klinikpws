@@ -4,10 +4,10 @@
           <strong><span> &copy; 2022 PT. PINANG WITMAS SEJATI </span></strong> </>. All Rights Reserved.
       </div>
       <div class="credits">
-      Develop by <a href="https://github.com/muhammadrafihadikesuma">
-          Muhammad Rafi Hadi Kesuma
-      </a> 
-    </div>
+          Develop by <a href="https://github.com/muhammadrafihadikesuma">
+              Muhammad Rafi Hadi Kesuma
+          </a>
+      </div>
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -57,16 +57,17 @@
 
               buttons: [
                   'copy',
-                  'colvis',
-                  <?php if ($_SESSION['level'] == 'admin') { ?>,
-                      'excel', {
-                          extend: 'pdfHtml5',
-                          orientation: 'landscape',
-                          pageSize: 'LEGAL',
-                          download: 'open',
+                  'excel',
+                  'print',
+                  {
+                      extend: 'pdfHtml5',
+                      orientation: 'landscape',
+                      pageSize: 'LEGAL',
+                      download: 'open',
 
-                      }, 'print',
-                  <?php } ?>
+                  },
+                  'colvis'
+
               ],
 
               dom: "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
@@ -82,6 +83,21 @@
               .appendTo('#dataTable_wrapper .col-md-5:eq(0)');
       });
   </script>
+
+  <!-- SELECT 2 -->
+  <script>
+      $(document).ready(function() {
+          $("#floatingJabatan").select2({
+              placeholder: "Select a state",
+              allowClear: true,
+              width: 'resolve'
+
+          });
+
+      });
+  </script>
+
+
   <!-- SCRIPT DATE TIME -->
   <script type="text/javascript">
       $(function() {
@@ -97,7 +113,7 @@
   <script>
       function my1() {
           var a = document.getElementById("1");
-          a.value = a.value.toLowerCase();
+          a.value = a.value.toUpperCase();
       }
   </script>
 

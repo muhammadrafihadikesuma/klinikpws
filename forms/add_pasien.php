@@ -1,9 +1,15 @@
+<?php
+session_start();
+require '../api/koneksi.php';
+// require 'api_checksessions.php';
+?>
+
 <!-- ======= Header ======= -->
-<?php include 'widgets_header.php'; ?>
+<?php require '../widgets/header.php'; ?>
 <!-- End Header -->
 
 <!-- ======= Sidebar ======= -->
-<?php include 'widgets_sidebar.php'; ?>
+<?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
 
 <body>
@@ -15,7 +21,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="home.php">Home</a></li>
-					<li class="breadcrumb-item"><a href="data_pasien.php">Data Pasien</a></li>
+					<li class="breadcrumb-item"><a href="../pages/pasien.php">Data Pasien</a></li>
 					<li class="breadcrumb-item active">Input Pasien</li>
 				</ol>
 			</nav>
@@ -30,15 +36,15 @@
 							<h5 class="card-title">Input Pasien</h5>
 
 							<!-- General Form Elements -->
-							<form action="api_inputpasiens.php" method="POST">
+							<form action="../api/add_pasiens.php" method="POST">
 
 								<input id="id_pasien" name="id_pasien" value="<?php echo $idPasien ?>" type="hidden" class="form-control" />
 
 								<!-- Nama Pasien -->
 								<div class="col-12 position-relative">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingPasien" name="nm" onkeyup="myFunction()" placeholder="Masukkan Nama Pasien" required>
-										<label for="floatingPasien">Nama Pasien</label>
+										<input type="text" class="form-control" id="1" name="nm" onkeyup="my1()" placeholder="Masukkan Nama Pasien" required>
+										<label for="1">Nama Pasien</label>
 										<div class="invalid-tooltip">
 											Nama Pasien Tidak Boleh Kosong!
 										</div>
@@ -72,27 +78,24 @@
 								</div>
 
 								<!--Status Pasien  -->
-								<div class="col-12">
-									<div class="form-floating mb-3">
-										<select class="form-select" aria-label="Default select example" id="floatingStatus" name="status" required>
-											<option selected disabled value>Pilih Status Pasien</option>
-											<option value="pekerja">Pekerja</option>
-											<option value="suami_istri">Istri/Suami Pekerja</option>
-											<option value="anak Pekerja">Anak Pekerja</option>
-											<option value="umum">Umum</option>
-										</select>
-										<label for="floatingStatus">Status Pasien</label>
-										<div class="invalid-tooltip">
-											Status Pasien Tidak Boleh Kosong!
-										</div>
-									</div>
+								<div class="col-12"></div>
+								<div class="form-floating mb-3">
+									<select class="form-select" aria-label="Default select example" id="floatingStatus" name="status" required>
+										<option selected disabled value>Pilih Status Pasien</option>
+										<option value="pekerja">Pekerja</option>
+										<option value="suami_istri">Istri/Suami Pekerja</option>
+										<option value="anak Pekerja">Anak Pekerja</option>
+										<option value="umum">Umum</option>
+									</select>
+									<label for="floatingStatus">Status Pasien</label>
+
 								</div>
 
 								<!-- Nama Pekerja -->
 								<div class="col-12">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingPekerja" name="nama_pekerja" onkeyup="myFunction1()" placeholder="Masukkan Nama Pekerja" required>
-										<label for="floatingPekerja">Nama Pekerja</label>
+										<input type="text" class="form-control" id="1" name="nama_pekerja" onkeyup="my1()" placeholder="Masukkan Nama Pekerja" required>
+										<label for="1">Nama Pekerja</label>
 										<div class="invalid-tooltip">
 											Nama Pekerja Tidak Boleh Kosong!
 										</div>
@@ -102,8 +105,8 @@
 								<!-- Jabatan Pekerja -->
 								<div class="col-12">
 									<div class="form-floating mb-3">
-										<select class="form-select" id="floatingJabatan" name="jabatan" data-placeholder="Pilih Jabatan" >
-											<option></option>
+										<select class="form-select" id="floatingJabatan" name="jabatan" style="width: 100%;" data-placeholder="Pilih Jabatan">
+											<option selected>Jabatan Pekerja</option>
 											<option value="1">Act. Askep ESD</option>
 											<option value="2">Act. Askep Nursery </option>
 											<option value="3">Act. Mgr Pangkor</option>
@@ -313,9 +316,9 @@
 											<option value="207">Tukang Kebun</option>
 											<option value="208">Wakil Komandan Regu</option>
 											<option value="209">Welder</option>
-
+											<option value="210">Umum</option>
 										</select>
-										<!-- <label for="floatingJabatan">Jabatan</label> -->
+										<!-- <label for="floatingJabatan"> Jabatan </label> -->
 									</div>
 								</div>
 
@@ -431,4 +434,4 @@
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<?php include 'widgets_footer.php'; ?>
+	<?php require '../widgets/footer.php'; ?>

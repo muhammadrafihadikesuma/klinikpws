@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 ?>
@@ -52,7 +51,7 @@ session_start();
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/logo-new.png" alt="">
-                                    <span class="d-none d-lg-block">LOGIN SYS IT</span>
+                                    <span class="d-none d-lg-block"> POLIKLINIK PWS</span>
                                 </a>
                             </div><!-- End Logo -->
 

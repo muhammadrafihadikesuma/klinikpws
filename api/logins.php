@@ -1,21 +1,44 @@
 <?php
-session_start(); 
-
-require '../api/koneksi.php';
+session_start();
+require "../api/koneksi.php";
+if (isset($_COOKIE['login'])) {
+	# code...
+	if ($_COOKIE['login'] == 'true') {
+		# code...
+		$_SESSION['id'] == true;
+	}
+}
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$query = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE username='$username'");
+$h = mysqli_num_rows($query);
 
-$query=$koneksi->query("SELECT * FROM tbl_user WHERE username='$username' AND password='$password'");
-$data=mysqli_fetch_array($query);
+if ($h > 0) {
+	# code...
+	$pw = mysqli_fetch_array($query);
+	$pwnow = $pw['password'];
 
-if ($data==TRUE)
-{	
-	$_SESSION['username']    = $username;
-	header("location:../pages/index.php");	
+	if (password_verify($password, $pwnow)) {
+
+		$_SESSION['id'] = $pw['id'];
+		$_SESSION['username'] = $pw['username'];
+		$_SESSION['nama'] = $pw['nama'];
+		$_SESSION['level'] = $pw['level'];
+		header("location: ../pages/index.php");
+
+		if (isset($_POST['remember'])) {
+			# code...
+			setcookie('login', 'true', time() + 30);
+		}
+
+	} else {
+		echo
+		print_r($pw);
+	}
+} else {
+	echo '<script>
+	window.alert ("GAGAL LOGIN");
+	window.location.href="../login.php";
+	</script>';
 }
- else 
- {
-	echo "<script>location='login.php'; </script>";	
-}
-?>

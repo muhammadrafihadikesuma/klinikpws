@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require '../widgets/header.php';
 require '../widgets/sidebar.php';
