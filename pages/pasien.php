@@ -1,5 +1,4 @@
 <?php
-session_start();
 require '../api/koneksi.php';
 // require 'api_checksessions.php';
 ?>
@@ -51,6 +50,7 @@ require '../api/koneksi.php';
                                             <th>NO HP</th>
                                             <th>ESTATE</th>
                                             <th>OP</th>
+                                            <th>AUTHOR</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
@@ -72,6 +72,7 @@ require '../api/koneksi.php';
                                             $nohp_pekerja = $read['nohp_pekerja'];
                                             $estate = $read['estate'];
                                             $op = $read['op'];
+                                            $author = $read['author'];
                                         ?>
 
                                             <td><?php echo $no++;  ?></td>
@@ -94,9 +95,10 @@ require '../api/koneksi.php';
                                             <td><?php echo $nohp_pekerja; ?></td>
                                             <td><?php echo $estate;  ?></td>
                                             <td> <?php echo $op; ?></td>
+                                            <td> <?php echo $author; ?></td>
                                             <td style="align-content: center;">
-                                                <a href="api_editpasiens.php?id=<?= $a['id_pasien'] ?>" class="label label-sm label-info"> <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
-                                                <a href="api_deletepasiens.php?id=<?= $a['id_pasien'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="bi bi-trash btn btn-danger btn-sm"></i></a>
+                                                <a href="../forms/edit_pasien.php?id=<?= $read['id_pasien'] ?>" class="label label-sm label-info"> <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
+                                                <a href="../api/delete_pasiens.php?id=<?= $read['id_pasien'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="bi bi-trash btn btn-danger btn-sm"></i></a>
                                             </td>
 
                                             </tr>

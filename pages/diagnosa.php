@@ -1,5 +1,4 @@
 <?php
-session_start();
 require '../api/koneksi.php';
 // require 'api_checksessions.php';
 ?>

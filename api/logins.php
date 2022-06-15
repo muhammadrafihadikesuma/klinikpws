@@ -25,7 +25,7 @@ if ($h > 0) {
 		$_SESSION['username'] = $pw['username'];
 		$_SESSION['nama'] = $pw['nama'];
 		$_SESSION['level'] = $pw['level'];
-		header("location: ../pages/index.php");
+		header("location: ../pages/home.php");
 
 		if (isset($_POST['remember'])) {
 			# code...
@@ -33,12 +33,14 @@ if ($h > 0) {
 		}
 
 	} else {
-		echo
-		print_r($pw);
+		echo '<script>
+		window.alert ("USERNAME & PASSWORD YANG ANDA MASUKKAN SALAH, HARAP DIPERIKSA KEMBALI..!!");
+		window.location.href="../index.php";
+		</script>';
 	}
 } else {
 	echo '<script>
 	window.alert ("GAGAL LOGIN");
-	window.location.href="../login.php";
+	window.location.href="../index.php";
 	</script>';
 }

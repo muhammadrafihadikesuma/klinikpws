@@ -120,7 +120,7 @@
   <script>
       function my2() {
           var a = document.getElementById("2");
-          a.value = a.value.toLowerCase();
+          a.value = a.value.toUpperCase();
       }
   </script>
 

@@ -1,3 +1,10 @@
+<?php
+session_start();
+require '../api/koneksi.php';
+require '../api/check.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +15,11 @@
   <title>POLIKLINIK PWS</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+  <!-- Font awesome -->
+  <link href="../fontawesome/css/all.css" rel="stylesheet">
+  <link href="../fontawesome/css/solid.css" rel="stylesheet">
+  <script src="../assets/js/cf5d80abea.js"></script>
 
   <!-- Link Search Select Option -->
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
@@ -53,7 +65,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../pages/index.php" class="logo d-flex align-items-center">
+      <a href="../pages/home.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo-new.png" alt="">
         <span class="d-none d-lg-block">POLIKLINIK PWS</span>
       </a>
@@ -217,18 +229,25 @@
 
         </li><!-- End Messages Nav -->
 
+        <?php
+        require '../api/koneksi.php';
+        $id = $_SESSION['id'];
+        $query = mysqli_query($koneksi, " SELECT * FROM tbl_user WHERE id='$id'");
+        while ($read = mysqli_fetch_array($query)) {
+        ?>
+
           <li class="nav-item dropdown pe-3">
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="../assets/img/logo-new.png" alt="Profile" class="rounded-circle">
-              <span class="d-none d-md-block dropdown-toggle ps-2">TEST</span>
+              <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $read['username'] ?></span>
             </a><!-- End Profile Iamge Icon -->
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
-                <h6>TEST </h6>
+                <h6><?php echo $read['nama'] ?></h6>
                 <hr class="dropdown-divider">
-                <span> TEST</span>
+                <span><?php echo $read['jabatan'] ?></span>
               </li>
               <li>
                 <!-- <hr class="dropdown-divider"> -->
@@ -276,4 +295,5 @@
 
       </ul>
     </nav><!-- End Icons Navigation -->
+  <?php } ?>
   </header><!-- End Header -->
