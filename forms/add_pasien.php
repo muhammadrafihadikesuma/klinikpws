@@ -19,7 +19,7 @@ $idPasien = $data['kodeTerbesar'];
 $urutan = (int) substr($idPasien, 10, 5);
 $urutan++;
 $huruf = "PWSPOLIPAS";
-$idPasien = $huruf . sprintf("%04s", $urutan);
+$idPasien = $huruf . sprintf("%05s", $urutan);
 ?>
 
 <?php
@@ -59,13 +59,31 @@ while ($read = mysqli_fetch_array($query)) {
 							<!-- General Form Elements -->
 							<form action="../api/add_pasiens.php" method="POST">
 
-								<input id="id_pasien" name="id_pasien" value="<?php echo $idPasien ?>" type="hidden" class="form-control" />
+								<!-- <input id="id_pasien"  type="hidden" class="form-control" /> -->
+
 								<input id="id_author" name="id_author" value="<?php echo $id_author ?>" type="hidden" class="form-control" />
+																
+								<!-- Kode Pasien -->
+								<div class="col-12 position-relative">
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="11" name="id_pasien" value="<?php echo $idPasien ?>" placeholder="Masukkan" readonly>
+										<label for="11">Nomor Pasien</label>
+									</div>
+								</div>
+
+
+								<!-- NIK -->
+								<div class="col-12 position-relative">
+									<div class="form-floating mb-3">
+										<input type="number" class="form-control" id="10" name="nik" placeholder="Masukkan" required>
+										<label for="10">Nomor Induk Kependudukan</label>
+									</div>
+								</div>
 
 								<!-- Nama Pasien -->
 								<div class="col-12 position-relative">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="1" name="nm" onkeyup="my1()" placeholder="Masukkan Nama Pasien" required>
+										<input type="text" class="form-control" id="1" name="nama_pasien" onkeyup="my1()" placeholder="Masukkan Nama Pasien" required>
 										<label for="1">Nama Pasien</label>
 										<div class="invalid-tooltip">
 											Nama Pasien Tidak Boleh Kosong!
@@ -82,9 +100,6 @@ while ($read = mysqli_fetch_array($query)) {
 											<option value="Perempuan">Perempuan</option>
 										</select>
 										<label for="floatingJk">Pilih Jenis Kelamin</label>
-										<div class="invalid-feedback">
-											Please select a valid state.
-										</div>
 									</div>
 								</div>
 
@@ -107,7 +122,7 @@ while ($read = mysqli_fetch_array($query)) {
 										<option value="Pekerja">Pekerja</option>
 										<option value="Suami/Istri">Istri/Suami Pekerja</option>
 										<option value="Anak Pekerja">Anak Pekerja</option>
-										<option value="umum">Umum</option>
+										<option value="Umum">Umum</option>
 									</select>
 									<label for="floatingStatus">Status Pasien</label>
 
@@ -163,7 +178,7 @@ while ($read = mysqli_fetch_array($query)) {
 											<option value="Mandor">Mandor</option>
 											<option value="Mekanik">Mekanik</option>
 											<option value="Office Boy/Girl">Office Boy/Girl</option>
-											<option value="Oil man">Oil Man</option>
+											<option value="Oil Man">Oil Man</option>
 											<option value="Operator">Operator</option>
 											<option value="Pemanen">Pemanen</option>
 											<option value="Pembantu">Pembantu</option>
@@ -175,11 +190,11 @@ while ($read = mysqli_fetch_array($query)) {
 											<option value="Plt">Pelaksana Tugas</option>
 											<option value="Sekretatis">Sekretaris ED & DED, Assistant Administrasi Kebun</option>
 											<option value="SM">Senior Manager</option>
-											<option value="Sortasi tbs">Sortasi TBS</option>
+											<option value="Sortasi Tbs">Sortasi TBS</option>
 											<option value="Staff">Staff </option>
 											<option value="Supir">Supir</option>
 											<option value="Training">Training</option>
-											<option value="Tukang kebun">Tukang Kebun</option>
+											<option value="Tukang Kebun">Tukang Kebun</option>
 											<option value="Wadanru">Wakil Komandan Regu</option>
 											<option value="Welder">Welder</option>
 											<option value="Umum">Umum</option>
@@ -191,9 +206,9 @@ while ($read = mysqli_fetch_array($query)) {
 								<!-- Status Pekerja -->
 								<div class="col-12">
 									<div class="form-floating mb-3">
-										<select class="form-select" aria-label="Default select example" id="floatingStatusPekerja" name="golongan" required>
+										<select class="form-select" aria-label="Default select example" id="floatingStatusPekerja" name="status_pekerja" required>
 											<option selected disabled value>Pilih Status Pekerja</option>
-											<option value="executive">Executive</option>
+											<option value="Executive">Executive</option>
 											<option value="PB">Pegawai Bulanan</option>
 											<option value="PGHT">Pegawai Harian Tetap</option>
 											<option value="BHL">Buruh Harian Lepas</option>
@@ -290,21 +305,13 @@ while ($read = mysqli_fetch_array($query)) {
 									</div>
 
 								</div>
-
 							</form>
 							<!-- End General Form Elements -->
-
 						</div>
 					</div>
 				</div>
-
-			</div>
-			</div>
-
-			</div>
 			</div>
 		</section>
-
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->

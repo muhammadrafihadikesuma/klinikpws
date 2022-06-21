@@ -1,5 +1,4 @@
 <?php
-session_start();
 require '../api/koneksi.php';
 // require 'api_checksessions.php';
 ?>
@@ -104,8 +103,6 @@ require '../api/koneksi.php';
 						</div>
 					</div>
 				</div>
-
-			</div>
 			</div>
 		</section>
 

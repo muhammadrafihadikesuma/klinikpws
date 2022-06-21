@@ -45,15 +45,15 @@
                                 <!-- USERNAME -->
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="2" name="username" placeholder="Masukkan" onkeyup="my2()" required>
-                                        <label for="2">Username</label>
+                                        <input type="text" class="form-control" id="3" name="username" placeholder="Masukkan" onkeyup="my3()" required>
+                                        <label for="3">Username</label>
                                     </div>
                                 </div>
 
                                 <!-- PASSWORD -->
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="3" name="password" placeholder="Masukkan" onkeyup="my3()" required>
+                                        <input type="password" class="form-control" id="3" name="password" placeholder="Masukkan" required>
                                         <label for="3">Password</label>
                                     </div>
                                 </div>

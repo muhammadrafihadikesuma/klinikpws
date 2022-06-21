@@ -12,15 +12,6 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- SCRIPT DATE -->
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/popper.js"></script>
-  <script src="../assets/js/bootstrap.min.js"></script>
-  <script src="../assets/js/moment-with-locales.min.js"></script>
-  <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
-  <script src="../assets/js/main.js"></script>
-
-
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -44,11 +35,11 @@
   <script src="../assets/js/vfs_fonts.js"></script>
   <script src="../assets/js/buttons.print.min.js"></script>
   <script src="../assets/js/buttons.colVis.min.js"></script>
-  <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
   <script src="../assets/js/moment-with-locales.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+
   <!-- Script DataTables -->
   <script>
       $(document).ready(function() {
@@ -84,6 +75,22 @@
       });
   </script>
 
+  <!-- DATATABLES PENDAFTARAN -->
+  <script>
+      $(document).ready(function() {
+          var table = $('#dataTablePendaftaran').DataTable({
+
+              lengthMenu: [
+                  [5, 10, 25, 50, 100, -1],
+                  [5, 10, 25, 50, 100, "All"]
+              ]
+          });
+
+          table.buttons().container()
+              .appendTo('#dataTable_wrapper .col-md-5:eq(0)');
+      });
+  </script>
+
   <!-- SELECT 2 -->
   <script>
       $(document).ready(function() {
@@ -97,9 +104,33 @@
       });
   </script>
 
+<!-- SCRIPT COLLAPSED -->
+<!-- <script>
+      $(document).ready(function() {
+          $("#collapsed").click(function(){
+
+            $("#myCollapsed").colapse("show");
+
+          });
+
+      });
+  </script> -->
+
+  <!-- SELECT2 PENYAKIT -->
+  <script>
+      $(document).ready(function() {
+          $("#diagnosa").select2({
+              placeholder: "Pilih Jenis Penyakit",
+              allowClear: true,
+              width: 'resolve'
+
+          });
+
+      });
+  </script>
 
   <!-- SCRIPT DATE TIME -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
       $(function() {
           $('#tanggalbeli').datetimepicker({
               language: 'en',
@@ -107,8 +138,24 @@
               format: 'mm/dd/yyyy hh:ii:ss'
           });
       });
-  </script>
+  </script> -->
 
+<!-- SCRIPT TIDAK BISA SPASI -->
+  <script>
+      $("#space").on({
+          keydown: function(e) {
+              if (e.which === 32)
+                  return false;
+          },
+          keyup: function() {
+              this.value = this.value.toUpperCase();
+          },
+          change: function() {
+              this.value = this.value.replace(/\s/g, "");
+
+          }
+      });
+  </script>
 
   <script>
       function my1() {

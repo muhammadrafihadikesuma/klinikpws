@@ -27,5 +27,5 @@ $send = mysqli_query($koneksi, "INSERT INTO tbl_user VALUES('$id',
                                                  '$jabatan',
                                                  '$level'
                                                 )") or die(mysqli_error($koneksi));
-// header("location:data_user.php");
+header("location:data_user.php");
 }

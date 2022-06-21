@@ -20,7 +20,7 @@ require '../api/koneksi.php';
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="input_penyakit.php">Input Penyakit</a></li>
+                    <li class="breadcrumb-item"><a href="../forms/add_penyakit.php">Input Penyakit</a></li>
                     <li class="breadcrumb-item active">Data Penyakit</li>
                 </ol>
             </nav>
@@ -37,27 +37,31 @@ require '../api/koneksi.php';
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>NOMOR PENYAKIT</th>
                                             <th>NAMA PENYAKIT</th>
+                                            <th>DESKRIPSI</th>
                                             <th style="text-align:center;">Opsi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         require '../api/koneksi.php';
-                                        $sql = mysqli_query($koneksi, "SELECT* from tbl_penyakit order by id DESC") or die("error karena" . mysqli_error($connection));
+                                        $sql = mysqli_query($koneksi, "SELECT* from tbl_penyakit order by id_penyakit DESC") or die("error karena" . mysqli_error($connection));
                                         $no = 1;
-                                        while ($a = mysqli_fetch_array($sql)) {
-                                            $id = $a['id'];
-                                            $d1 = $a['nama_penyakit'];
+                                        while ($read = mysqli_fetch_array($sql)) {
+                                            $id_penyakit = $read['id_penyakit'];
+                                            $nama_penyakit = $read['nama_penyakit'];
+                                            $deskripsi = $read['deskripsi'];
 
                                         ?>
-                                            <tr style="font-size:12px;" ;>
-                                                <td style="width:2%" ;><?php echo $no++;  ?></td>
-                                                <td style="width:15%; text-align:left;"><?php echo  $d1;  ?></td>
-                                                <td style="width:3%; text-align:center;">
-                                                    <a href="api_editpenyakits.php?id=<?= $a['id'] ?>" class="label label-sm label-info"> <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
-                                                    &nbsp; &nbsp; &nbsp; &nbsp;
-                                                    <a href="api_deletepenyakits.php?id=<?= $a['id'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="bi bi-trash btn btn-danger btn-sm"></i></a>
+                                            <tr>
+                                                <td><?php echo $no++;  ?></td>
+                                                <td><?php echo $id_penyakit;  ?></td>
+                                                <td><?php echo  $nama_penyakit;  ?></td>
+                                                <td style="text-align: justify;"><?php echo  $deskripsi;  ?></td>
+                                                <td style="position: relative;">
+                                                    <a href="../forms/edit_penyakit.php?id=<?= $read['id_penyakit'] ?>" class="label label-sm label-info"> <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
+                                                    <a href="../api/delete_penyakits.php?id=<?= $read['id_penyakit'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="bi bi-trash btn btn-danger btn-sm"></i></a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

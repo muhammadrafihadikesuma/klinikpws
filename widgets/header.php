@@ -11,7 +11,8 @@ require '../api/check.php';
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  
+  <!-- <meta http-equiv="refresh" content="30" /> -->
   <title>POLIKLINIK PWS</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -22,7 +23,6 @@ require '../api/check.php';
   <script src="../assets/js/cf5d80abea.js"></script>
 
   <!-- Link Search Select Option -->
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../assets/css/select2.min.css" />
   <link rel="stylesheet" href="../assets/css/select2-bootstrap-5-theme.min.css" />
   <!-- Or for RTL support -->
@@ -181,7 +181,7 @@ require '../api/check.php';
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <img src="../assets/img/messages-1.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Maria Hudson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -195,7 +195,7 @@ require '../api/check.php';
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                <img src="../assets/img/messages-2.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -209,7 +209,7 @@ require '../api/check.php';
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                <img src="../assets/img/messages-3.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>David Muldon</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
