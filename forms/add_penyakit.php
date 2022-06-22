@@ -30,7 +30,7 @@ $idPenyakit = $huruf . sprintf("%05s", $urutan);
             <h1>FORM INPUT PENYAKIT</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="../pages/penyakit.php">Data Penyakit</a></li>
                     <li class="breadcrumb-item active">Input Penyakit</li>
                 </ol>

@@ -14,7 +14,7 @@
             <h1>INPUT USER</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="data_user.php">Data User</a></li>
                     <li class="breadcrumb-item active">Input User</li>
                 </ol>

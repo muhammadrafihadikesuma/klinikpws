@@ -51,7 +51,7 @@ while ($edit = mysqli_fetch_array($query)) {
             <h1>FORM EDIT PASIEN</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="../pages/pasien.php">Data Pasien</a></li>
                     <li class="breadcrumb-item active">Edit Pasien</li>
                 </ol>

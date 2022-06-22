@@ -20,7 +20,7 @@ require '../api/koneksi.php';
             <h1>DATA DIAGNOSA</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item active">Data Diagnosa</li>
                 </ol>
             </nav>

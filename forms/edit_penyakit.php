@@ -28,7 +28,7 @@ while ($edit = mysqli_fetch_array($query)) {
             <h1>FORM EDIT PENYAKIT</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="../pages/penyakit.php">Data Penyakit</a></li>
                     <li class="breadcrumb-item active">Edit Penyakit</li>
                 </ol>

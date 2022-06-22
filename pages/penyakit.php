@@ -19,7 +19,7 @@ require '../api/koneksi.php';
             <h1>DATA PENYAKIT</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="../forms/add_penyakit.php">Input Penyakit</a></li>
                     <li class="breadcrumb-item active">Data Penyakit</li>
                 </ol>

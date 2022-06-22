@@ -15,11 +15,11 @@ require '../api/koneksi.php';
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>DATA ANTRIAN</h1>
+            <h1>REKAM MEDIS</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
-                    <li class="breadcrumb-item active">Data Antrian</li>
+                    <li class="breadcrumb-item active">REKAM MEDIS</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -28,27 +28,29 @@ require '../api/koneksi.php';
             <div class="card shadow mb-4">
                 <div class="col-lg-12">
                     <div class="card-body">
-                        <h5 class="card-title">Data Antrian</h5>
+                        <h5 class="card-title">Data Pasien</h5>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
                                     <thead>
                                         <tr>
-                                            <th>NO ANTRI</th>
-                                            <th>NO MR</th>
+                                            <th>#</th>
+                                            <th>NO. PENDAFTARAN</th>
+                                            <th>NO. PASIEN</th>
                                             <th>NAMA</th>
                                             <th>TANGGAL</th>
                                             <th>INFORMASI</th>
                                             <th>KELUHAN</th>
-                                            <th style="text-align:center;">Opsi</th>
+                                            <th>STATUS</th>
+                                            <th>AUTHOR</th>
+                                            <th>Opsi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../api/koneksi.php";
-                                        $sql = mysqli_query($koneksi, "SELECT * FROM tbl_pendaftaran WHERE status='antri' ORDER BY id_pendaftaran  ASC") or die("error karena" . mysqli_error($koneksi));
+                                        require '../api/koneksi.php';
+                                        $sql = mysqli_query($koneksi, "SELECT * from tbl_pendaftaran order by id_pendaftaran DESC") or die("error karena" . mysqli_error($koneksi));
                                         $no = 1;
-                                        $noantrian = 01;
                                         while ($read = mysqli_fetch_array($sql)) {
                                             $id_pendaftaran = $read['id_pendaftaran'];
                                             $id_pasien = $read['id_pasien'];
@@ -61,23 +63,25 @@ require '../api/koneksi.php';
                                             $nadi = $read['nadi'];
                                             $pernafasan = $read['pernafasan'];
                                             $keluhan_pasien = $read['keluhan_pasien'];
+                                            $status = $read['status'];
+                                            $author = $read['author'];
 
                                         ?>
                                             <tr>
-                                                <td style="width:3%; text-align: center;"><?php echo $no++;  ?></td>
+                                                <td style="width:2%" ;><?php echo $no++;  ?></td>
+                                                <td style="width:3%; text-align:center;"><?php echo  $id_pendaftaran;  ?></td>
                                                 <td style="width:3%; text-align:left;"><?php echo  $id_pasien;  ?></td>
-                                                <td style="width:7%; text-align:left;">
+                                                <td style="width:15%; text-align:left;">
                                                     <?php
-                                                    require  "../api/koneksi.php";
-                                                    $sql4 = mysqli_query($koneksi, "SELECT * FROM tbl_pasien WHERE id_pasien='$id_pasien'") or die("error karena " . mysqli_error($koneksi));
-                                                    while ($reads = mysqli_fetch_array($sql4)) {
+                                                    require '../api/koneksi.php';
+                                                    $pasien = mysqli_query($koneksi, "SELECT * from tbl_pasien where id_pasien='$id_pasien'") or die("error karena " . mysqli_error($koneksi));
+                                                    while ($reads = mysqli_fetch_array($pasien)) {
                                                         echo $nama_pasien = $reads['nama_pasien'];
-                                                        //echo $d1;
                                                     }
                                                     ?>
                                                 </td>
                                                 <td style="width:5%; text-align:left;"><?php echo  $tanggal_pendaftaran;  ?></td>
-                                                <td style="width:15%; text-align:left;"><?php echo "Tinggi : ";
+                                                <td style="width:20%; text-align:left;"><?php echo "Tinggi : ";
                                                                                         echo $tinggi_badan, " Cm";
                                                                                         echo " <br> Berat Badan : ";
                                                                                         echo $berat_badan, " Kg";
@@ -91,11 +95,14 @@ require '../api/koneksi.php';
                                                                                         echo $nadi, " kali per menit";
                                                                                         echo " <br> Pernafasan : ";
                                                                                         echo $pernafasan, " kali per menit"; ?></td>
-                                                <td style="width:10%; text-align:left;"><?php echo  $keluhan_pasien;  ?></td>
-
-                                                <td style="width:4%; text-align:center;">
-                                                    <a href="../api/periksa.php?id=<?= $read['id_pendaftaran'] ?>">
-                                                        <button class="btn btn-warning btn-sm">Periksa</button></a>
+                                                <td><?php echo  $keluhan_pasien;  ?></td>
+                                                <td style="width: 8%;"><?php echo  $status;  ?></td>
+                                                <td style="width: 20%;"><?php echo  $author;  ?></td>
+                                                <td style="text-align: center; width: 7%;">
+                                                    <a href="../forms/edit_pendaftaran.php?id=<?= $read['id_pendaftaran'] ?>" class="label label-sm label-info">
+                                                        <i class="bi bi-pencil-square btn btn-success btn-sm"></i></a>
+                                                    <a href="../api/delete_pendaftaran.php?id=<?= $read['id_pendaftaran'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')">
+                                                        <i class="bi bi-trash btn btn-danger btn-sm"></i></a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -103,12 +110,12 @@ require '../api/koneksi.php';
                                 </table>
                             </div>
                         </div>
-
                     </div>
                 </div>
+            </div>
         </section>
+    </main>
+    <!-- End #main -->
 
-    </main><!-- End #main -->
-</body>
-<!-- ======= Footer ======= -->
-<?php require '../widgets/footer.php'; ?>
+    <!-- ======= Footer ======= -->
+    <?php require '../widgets/footer.php'; ?>

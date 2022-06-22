@@ -18,7 +18,7 @@ require '../api/koneksi.php';
             <h1>DATA PENDAFTARAN</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="../forms/add_pendaftaran.php">Input Pendaftaran</a></li>
                     <li class="breadcrumb-item active">Data Pendaftaran</li>
                 </ol>
