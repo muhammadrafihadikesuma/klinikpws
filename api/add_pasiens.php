@@ -23,7 +23,7 @@ if ($check_nik > 0) {
     # code...
     echo '<script> 
     alert ("NIK TELAH TERDAFTAR DI DATABASE, LANJUTKAN KE FORM INPUT PENDAFTARAN..!!");
-	window.location.href="../forms/add_pasien.php";
+	window.location.href="../pages/pendaftaran.php";
     </script>';
 } else {
     # code...
@@ -45,5 +45,5 @@ if ($check_nik > 0) {
     )")or die(mysqli_error($connection));
 
 
-header("location:../pages/pasien.php");
+header("location:../pages/pendaftaran.php");
 }

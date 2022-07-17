@@ -45,10 +45,21 @@
       $(document).ready(function() {
           var table = $('#dataTable').DataTable({
               // lengthChange: false,
-
+              dom: 'Bfrtip',
               buttons: [
+                  // {
+                  //       text: 'Tambah Pasien',
+                  //       action: function(e, dt, button, config) {
+                  //           window.location = '../forms/add_pasien.php';
+                  //       }
+                  //   },
                   'copy',
-                  'excel',
+                  {
+                      extend: 'excelHtml5',
+                      exportOptions: {
+                          columns: ':visible'
+                      }
+                  },
                   'print',
                   {
                       extend: 'pdfHtml5',
@@ -92,20 +103,21 @@
   </script>
 
   <!-- SELECT 2 -->
-  <script>
+  <!-- <script>
       $(document).ready(function() {
-          $("#floatingJabatan").select2({
+          $("#jabatanPekerja").select2({
               placeholder: "Select a state",
               allowClear: true,
-              width: 'resolve'
+              width: 'resolve',
+              dropdownParent: $('#jabatanPekerja'),
 
           });
 
       });
-  </script>
+  </script> -->
 
-<!-- SCRIPT COLLAPSED -->
-<!-- <script>
+  <!-- SCRIPT COLLAPSED -->
+  <!-- <script>
       $(document).ready(function() {
           $("#collapsed").click(function(){
 
@@ -140,7 +152,7 @@
       });
   </script> -->
 
-<!-- SCRIPT TIDAK BISA SPASI -->
+  <!-- SCRIPT TIDAK BISA SPASI -->
   <script>
       $("#space").on({
           keydown: function(e) {

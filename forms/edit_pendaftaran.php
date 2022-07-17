@@ -31,8 +31,8 @@ while ($edit = mysqli_fetch_array($query)) {
 	$status = $edit['status'];
 }
 
-$id = $_SESSION['id'];
-$query = mysqli_query($koneksi, " SELECT * FROM tbl_user WHERE id='$id'");
+$id_user = $_SESSION['id'];
+$query = mysqli_query($koneksi, " SELECT * FROM tbl_user WHERE id='$id_user'");
 while ($read = mysqli_fetch_array($query)) {
 	$id_author = $read['id'];
 	$author = $read['nama'];

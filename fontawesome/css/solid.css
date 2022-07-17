@@ -16,4 +16,6 @@
 .fas,
 .fa-solid {
   font-family: 'Font Awesome 6 Free';
-  font-weight: 900; }
+  font-weight: 900; 
+  width: 18px;
+}

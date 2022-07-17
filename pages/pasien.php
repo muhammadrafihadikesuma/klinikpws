@@ -10,7 +10,7 @@ require '../api/koneksi.php';
 <!-- ======= Sidebar ======= -->
 <?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
-
+<?php require '../modals/modals.php' ?>
 <body>
 
     <main id="main" class="main">
@@ -20,7 +20,7 @@ require '../api/koneksi.php';
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../forms/add_pasien.php">Input Pasien</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../forms/add_pasien.php">Input Pasien</a></li> -->
                     <li class="breadcrumb-item active">Data Pasien</li>
                 </ol>
             </nav>
@@ -33,6 +33,10 @@ require '../api/koneksi.php';
                     <div class="card-body">
                         <h5 class="card-title">Data Pasien</h5>
                         <div class="card-body">
+                            <!-- <h6><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputPasien">
+                                    Input Pasien
+                                </button>
+                            </h6> -->
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
                                     <thead>
@@ -82,12 +86,12 @@ require '../api/koneksi.php';
                                                 <td><?php echo  $nik;  ?></td>
                                                 <td><?php echo  $nama_pasien;  ?></td>
                                                 <td><?php
-                                                                        if ($jk == "1") {
-                                                                            echo "Laki-laki";
-                                                                        } else {
-                                                                            echo "Perempuan";
-                                                                        }
-                                                                        ?>
+                                                    if ($jk == "1") {
+                                                        echo "Laki-laki";
+                                                    } else {
+                                                        echo "Perempuan";
+                                                    }
+                                                    ?>
                                                 </td>
                                                 <td><?php echo $no_bpjs; ?></td>
                                                 <td><?php echo $tgl_lahir;  ?></td>
@@ -119,5 +123,8 @@ require '../api/koneksi.php';
     </main>
     <!-- End #main -->
 
+    <!-- Button trigger modal -->
+
+    
     <!-- ======= Footer ======= -->
     <?php require '../widgets/footer.php'; ?>

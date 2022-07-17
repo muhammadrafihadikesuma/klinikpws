@@ -5,6 +5,7 @@ require '../api/check.php';
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +20,11 @@ require '../api/check.php';
 
   <!-- Font awesome -->
   <link href="../fontawesome/css/all.css" rel="stylesheet">
+  <link href="../fontawesome/css/brands.css" rel="stylesheet">
+  <link href="../fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="../fontawesome/css/regular.css" rel="stylesheet">
   <link href="../fontawesome/css/solid.css" rel="stylesheet">
-  <script src="../assets/js/cf5d80abea.js"></script>
+  <!-- <script src="../assets/js/cf5d80abea.js"></script> -->
 
   <!-- Link Search Select Option -->
   <link rel="stylesheet" href="../assets/css/select2.min.css" />
@@ -50,7 +54,6 @@ require '../api/check.php';
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Custom CSS Table-->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="../assets/css/buttons.bootstrap5.min.css">
 

@@ -10,7 +10,7 @@ require '../api/koneksi.php';
 <!-- ======= Sidebar ======= -->
 <?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
-
+<?php require '../modals/modals.php'; ?>
 <body>
     <main id="main" class="main">
 
@@ -31,6 +31,10 @@ require '../api/koneksi.php';
                     <div class="card-body">
                         <h5 class="card-title">Data Pasien</h5>
                         <div class="card-body">
+                        <h6><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputPendaftaran">
+                                    Input Pendaftaran
+                                </button>
+                            </h6>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
                                     <thead>

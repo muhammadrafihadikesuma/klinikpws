@@ -10,7 +10,7 @@ require '../api/koneksi.php';
 <!-- ======= Sidebar ======= -->
 <?php require '../widgets/sidebar.php'; ?>
 <!-- End Sidebar-->
-
+<?php require '../modals/modals.php'; ?>
 <body>
 
     <main id="main" class="main">
@@ -20,7 +20,7 @@ require '../api/koneksi.php';
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../pages/home.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../forms/add_penyakit.php">Input Penyakit</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../forms/add_penyakit.php">Input Penyakit</a></li> -->
                     <li class="breadcrumb-item active">Data Penyakit</li>
                 </ol>
             </nav>
@@ -30,8 +30,12 @@ require '../api/koneksi.php';
             <div class="card shadow mb-4">
                 <div class="col-lg-12">
                     <div class="card-body">
-                        <h5 class="card-title">Data Pasien</h5>
+                        <h5 class="card-title">Data Penyakit</h5>
                         <div class="card-body">
+                            <h6><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputPenyakit">
+                                    Input Penyakit
+                                </button>
+                            </h6>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
                                     <thead>

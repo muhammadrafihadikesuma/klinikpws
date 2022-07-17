@@ -142,7 +142,7 @@ while ($read = mysqli_fetch_array($query)) {
 								<!-- Jabatan Pekerja -->
 								<div class="col-12">
 									<div class="form-floating mb-3">
-										<select class="form-select" id="floatingJabatan" name="jabatan_pekerja" style="width: 100%;" data-placeholder="Pilih Jabatan">
+										<select class="form-select" id="jabatanPekerja" name="jabatan_pekerja" style="width: 100%;" data-placeholder="Pilih Jabatan">
 											<option selected>Jabatan Pekerja</option>
 											<option value="Act. Askep">Act. Askep</option>
 											<option value="Act. Manager">Act. Manager</option>
@@ -199,7 +199,7 @@ while ($read = mysqli_fetch_array($query)) {
 											<option value="Welder">Welder</option>
 											<option value="Umum">Umum</option>
 										</select>
-										<!-- <label for="floatingJabatan"> Jabatan </label> -->
+										<!-- <label for="jabatanPekerja"> Jabatan </label> -->
 									</div>
 								</div>
 

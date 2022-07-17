@@ -62,7 +62,7 @@ while ($read = mysqli_fetch_array($query)) {
 								<!-- Nomor Obat -->
 								<div class="col-12"></div>
 								<div class="form-floating mb-3">
-									<input type="text" class="form-control" id="11" name="id_stok" value="<?php echo $idObat ?>" placeholder="Masukkan" readonly>
+									<input type="text" class="form-control" id="11" name="id_obat" value="<?php echo $idObat ?>" placeholder="Masukkan" readonly>
 									<label for="11">Nomor Obat</label>
 								</div>
 
